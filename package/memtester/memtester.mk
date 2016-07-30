@@ -13,6 +13,7 @@ MEMTESTER_TARGET_INSTALL_OPTS = INSTALLPATH=$(TARGET_DIR)/usr
 
 define MEMTESTER_BUILD_CMDS
 	$(SED) "s,^cc,$(TARGET_CC)," $(@D)/conf-*
+	$(SED) "s,-DTEST_NARROW_WRITES,," $(@D)/conf-*
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)
 endef
 
